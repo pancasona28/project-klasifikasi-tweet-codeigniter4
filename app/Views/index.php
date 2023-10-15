@@ -473,7 +473,7 @@
                                     <?php
                                     foreach ($label as $i) : ?>
                                         <tr>
-                                            <th scope="row"><?= $i['Id']; ?></th>
+                                            <th scope="row"><?= $k++; ?></th>
                                             <td><?= $i['Id']; ?></td>
                                             <td><?= $i['Full_text']; ?></td>
                                             <td><?= $i['Dataset']; ?></td>
