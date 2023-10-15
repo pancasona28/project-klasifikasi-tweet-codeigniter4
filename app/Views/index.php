@@ -471,7 +471,6 @@
                                 <tbody>
 
                                     <?php
-                                    $k = 1;
                                     foreach ($label as $i) : ?>
                                         <tr>
                                             <th scope="row"><?= $i['Id']; ?></th>
