@@ -342,26 +342,101 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/label">
+                            <?php if (session()->getFlashdata('berhasil')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= $pesan = session()->getFlashdata('berhasil'); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (session()->getFlashdata('gagal')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= $pesan = session()->getFlashdata('gagal') ?>
+                                </div>
+                            <?php endif; ?>
+                            <form id="myForm" action="" method="post">
                                 <h5 class="card-title">Labeling Tweet</h5>
-                                <p class="small fst-italic"><?= $page; ?></p>
+                                <p class="small fst-italic"><?= $labeling['Full_text']; ?></p>
                                 <h5 class="card-title">Data</h5>
 
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label ">Label</div>
-                                    <div class="col-lg-9 col-md-8">Label</div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12 col-md-12">
+                                        <label class="col-lg-3 col-md-4  ">Label</label>
+                                        <span class="badge rounded-pill bg-<?= ($labeling['Label'] === '1' ? "success" : "danger"); ?> col-lg-2 col-md-2"><?= ($labeling['Label'] === '1' ? "Positif" : "Negatif"); ?></span>
+                                    </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-3 col-md-4 label">Clening</div>
-                                    <div class="col-lg-9 col-md-8">clening</div>
+                                    <p class="col-lg-9 col-md-8"><?= $labeling['Dataset']; ?></p>
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Positif</button>
-                                    <button type="submit" class="btn btn-danger">Negatif</button>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4">
+                                        <label>Sudah Di Chek</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-8">
+                                        <p><?= $total['t_sudah']['t_sudah']; ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4 label">Sisa Data</div>
+                                    <div class="col-lg-9 col-md-8"><?= $total['t_belum']['t_belum']; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4 label">data dengan label 0</div>
+                                    <div class="col-lg-9 col-md-8"><?= $t_0; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">data dengan label 1</div>
+                                        <div class="col-lg-9 col-md-8"><?= $t_1; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4 label">Rasio data dengan label 0</div>
+                                    <div class="col-lg-9 col-md-8"><?= $r_0; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">Rasio data dengan label 1</div>
+                                        <div class="col-lg-9 col-md-8"><?= $r_1; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12 col-md-12">
+                                        <label class="col-lg-3 col-md-4">Ragu</label>
+                                        <span class="badge rounded-pill bg-<?= ($ragu['ini'] === '1' ? 'success' : 'danger'); ?> col-lg-2"><?= ($ragu['ini'] === '1' ? 'Positif' : 'Negatif'); ?></span>
+                                    </div>
+                                </div>
+                                <div class="text-center" style="margin-top: 10px;">
+                                    <button id="positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Positif</button>
+                                    <button id="negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Negatif</button>
+                                    <button id="r_positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Ragu Positif</button>
+                                    <button id="r_negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Ragu Negatif</button>
                                 </div>
                             </form>
+                            <script>
+                                // Fungsi untuk mengubah action formulir
+                                function changeFormAction(action) {
+                                    document.getElementById('myForm').action = action;
+                                }
 
+                                // Menambahkan event listener ke masing-masing tombol
+                                document.getElementById('positif').addEventListener('click', function() {
+                                    changeFormAction('/save/pos/' + <?= $labeling['Id']; ?>);
+                                    document.getElementById('myForm').submit();
+                                });
+
+                                document.getElementById('negatif').addEventListener('click', function() {
+                                    changeFormAction('/save/neg/' + <?= $labeling['Id']; ?>);
+                                    document.getElementById('myForm').submit();
+                                });
+
+                                document.getElementById('r_positif').addEventListener('click', function() {
+                                    changeFormAction('/save/rapos/' + <?= $labeling['Id']; ?>);
+                                    document.getElementById('myForm').submit();
+                                });
+
+                                document.getElementById('r_negatif').addEventListener('click', function() {
+                                    changeFormAction('/save/raneg/' + <?= $labeling['Id']; ?>);
+                                    document.getElementById('myForm').submit();
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -404,7 +479,7 @@
                                             <td><?= $i['Full_text']; ?></td>
                                             <td><?= $i['Dataset']; ?></td>
                                             <td><?= $i['Lang']; ?></td>
-                                            <td><?= ($i['Label'] === 1 ? 'Positif' : 'Negatif'); ?></td>
+                                            <td><?= ($i['Label'] === '1' ? 'Positif' : 'Negatif'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
