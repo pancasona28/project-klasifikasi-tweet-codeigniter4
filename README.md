@@ -1,4 +1,5 @@
 # CodeIgniter 4 Application Starter
+# penting saat pertama kali lakukan composer install
 
 ## What is CodeIgniter?
 
