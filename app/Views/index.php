@@ -376,35 +376,36 @@
                                         <p><?= $total['t_sudah']['t_sudah']; ?></p>
                                     </div>
                                 </div>
-
                                 <div class="row" style="margin-top: 10px;">
-                                    <div class="col-lg-3 col-md-4 label">Sisa Data</div>
+                                    <div class="col-lg-3 col-md-4 label">Sisa Data yang belum di chek</div>
                                     <div class="col-lg-9 col-md-8"><?= $total['t_belum']['t_belum']; ?></div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-lg-3 col-md-4 label">data dengan label 0</div>
-                                    <div class="col-lg-9 col-md-8"><?= $t_0; ?></div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;">
+                                <?php if ($hide) : ?>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">data dengan label 0</div>
+                                        <div class="col-lg-9 col-md-8"><?= $t_0; ?></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
                                         <div class="col-lg-3 col-md-4 label">data dengan label 1</div>
                                         <div class="col-lg-9 col-md-8"><?= $t_1; ?></div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-lg-3 col-md-4 label">Data tidak ragu</div>
-                                    <div class="col-lg-9 col-md-8"><?= $t_r; ?></div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-lg-3 col-md-4 label">Data ragu ragu</div>
-                                    <div class="col-lg-9 col-md-8"><?= $r_r; ?></div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-lg-3 col-md-4 label">Rasio data dengan label 0</div>
-                                    <div class="col-lg-9 col-md-8"><?= $r_0; ?></div>
-                                </div>
-                                <div class="row" style="margin-top: 10px;">
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">Data tidak ragu</div>
+                                        <div class="col-lg-9 col-md-8"><?= $t_r; ?></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">Data ragu ragu</div>
+                                        <div class="col-lg-9 col-md-8"><?= $r_r; ?></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-lg-3 col-md-4 label">Rasio data dengan label 0</div>
+                                        <div class="col-lg-9 col-md-8"><?= $r_0; ?></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;">
                                         <div class="col-lg-3 col-md-4 label">Rasio data dengan label 1</div>
                                         <div class="col-lg-9 col-md-8"><?= $r_1; ?></div>
-                                </div>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-12 col-md-12">
                                         <label class="col-lg-3 col-md-4">Ragu</label>
