@@ -8,7 +8,7 @@ class Ragu extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'ragu';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'Id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

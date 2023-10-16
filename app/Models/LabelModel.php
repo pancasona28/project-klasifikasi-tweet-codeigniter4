@@ -11,7 +11,7 @@ class LabelModel extends Model {
     // protected $createdField  = 'created_at';
     // protected $updatedField  = 'updated_at';
     protected $allowedFields = ['Label', 'Chek', 'Status'];
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
 
     public function search($keyword) {
         return $this->table($this->table)->like('Dataset', $keyword);
