@@ -390,6 +390,14 @@
                                         <div class="col-lg-9 col-md-8"><?= $t_1; ?></div>
                                 </div>
                                 <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4 label">Data tidak ragu</div>
+                                    <div class="col-lg-9 col-md-8"><?= $t_r; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-3 col-md-4 label">Data ragu ragu</div>
+                                    <div class="col-lg-9 col-md-8"><?= $r_r; ?></div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-3 col-md-4 label">Rasio data dengan label 0</div>
                                     <div class="col-lg-9 col-md-8"><?= $r_0; ?></div>
                                 </div>
@@ -404,6 +412,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center" style="margin-top: 10px;">
+                                    <button id="kembali" type="submit" class="btn btn-primary" style="margin-top: 10px;">Kembali</button>
                                     <button id="positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Positif</button>
                                     <button id="negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Negatif</button>
                                     <button id="r_positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Ragu Positif</button>
@@ -417,6 +426,10 @@
                                 }
 
                                 // Menambahkan event listener ke masing-masing tombol
+                                document.getElementById('kembali').addEventListener('click', function() {
+                                    changeFormAction('/save/kem/' + <?= $labeling['Id']; ?>);
+                                    document.getElementById('myForm').submit();
+                                });
                                 document.getElementById('positif').addEventListener('click', function() {
                                     changeFormAction('/save/pos/' + <?= $labeling['Id']; ?>);
                                     document.getElementById('myForm').submit();
