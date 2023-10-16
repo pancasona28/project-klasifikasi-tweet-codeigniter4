@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::label');
 $routes->get('/form', 'Home::form');
 $routes->get('/label', 'Home::label');
 $routes->get('/tabel', 'Home::tabel');
