@@ -55,6 +55,7 @@ class Home extends BaseController {
             'r_1'       => $r_1,
             't_r'       => $t,
             'r_r'       => $r,
+            'hide'      => false,
         ];
         return view('index', $data);
     }
@@ -78,13 +79,16 @@ class Home extends BaseController {
                 'Status'    => null,
             ];
             $c = $this->labeldata->where('Id', intval($Id) - 1)->find();
-            if ($c[0]['Status'] === "ragu" && $c[0]['Label'] === '1') {
+            if ($c[0]['Status'] === "ragu" || $c[0]['Label'] === '1') {
                 # code...
                 $ini = $this->ragu->set('ini', 0)->where('Id', 1)->update();
-            } elseif ($c[0]['Status'] === "ragu" && $c[0]['Label'] === '0') {
+                dd($ini);
+            } elseif ($c[0]['Status'] === "ragu" || $c[0]['Label'] === '0') {
                 # code...
                 $ini = $this->ragu->set('ini', 1)->where('Id', 1)->update();
+                dd($ini);
             }
+            dd();
             $result = $this->labeldata->save($save);
             $i = '1';
         } else {
