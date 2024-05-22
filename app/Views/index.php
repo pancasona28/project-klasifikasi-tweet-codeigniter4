@@ -357,12 +357,12 @@
                                 <p class="small fst-italic"><?= $labeling['Full_text']; ?></p>
                                 <h5 class="card-title">Data</h5>
 
-                                <div class="row" style="margin-top: 10px;">
+                                <!-- <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-12 col-md-12">
                                         <label class="col-lg-3 col-md-4  ">Label</label>
-                                        <span class="badge rounded-pill bg-<?= ($labeling['Label'] === '1' ? "success" : "danger"); ?> col-lg-2 col-md-2"><?= ($labeling['Label'] === '1' ? "Positif" : "Negatif"); ?></span>
+                                        <span class="badge rounded-pill bg-<@= ($labeling['Label'] === '1' ? "success" : "danger"); ?> col-lg-2 col-md-2"><@= ($labeling['Label'] === '1' ? "Positif" : "Negatif"); ?></span>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-3 col-md-4 label">Clening</div>
@@ -389,14 +389,14 @@
                                         <div class="col-lg-3 col-md-4 label">data dengan label 1</div>
                                         <div class="col-lg-9 col-md-8"><?= $t_1; ?></div>
                                     </div>
-                                    <div class="row" style="margin-top: 10px;">
+                                    <!-- <div class="row" style="margin-top: 10px;">
                                         <div class="col-lg-3 col-md-4 label">Data tidak ragu</div>
-                                        <div class="col-lg-9 col-md-8"><?= $t_r; ?></div>
+                                        <div class="col-lg-9 col-md-8"><@= $t_r; ?></div>
                                     </div>
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-lg-3 col-md-4 label">Data ragu ragu</div>
-                                        <div class="col-lg-9 col-md-8"><?= $r_r; ?></div>
-                                    </div>
+                                        <div class="col-lg-9 col-md-8"><@= $r_r; ?></div>
+                                    </div> -->
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="col-lg-3 col-md-4 label">Rasio data dengan label 0</div>
                                         <div class="col-lg-9 col-md-8"><?= $r_0; ?></div>
@@ -406,18 +406,18 @@
                                         <div class="col-lg-9 col-md-8"><?= $r_1; ?></div>
                                     </div>
                                 <?php endif; ?>
-                                <div class="row" style="margin-top: 10px;">
+                                <!-- <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-12 col-md-12">
                                         <label class="col-lg-3 col-md-4">Ragu</label>
-                                        <span class="badge rounded-pill bg-<?= ($ragu['ini'] === '1' ? 'success' : 'danger'); ?> col-lg-2"><?= ($ragu['ini'] === '1' ? 'Positif' : 'Negatif'); ?></span>
+                                        <span class="badge rounded-pill bg-<@= ($ragu['ini'] === '1' ? 'success' : 'danger'); ?> col-lg-2"><@= ($ragu['ini'] === '1' ? 'Positif' : 'Negatif'); ?></span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="text-center" style="margin-top: 10px;">
                                     <button id="kembali" type="submit" class="btn btn-primary" style="margin-top: 10px;">Kembali</button>
                                     <button id="positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Positif</button>
                                     <button id="negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Negatif</button>
-                                    <button id="r_positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Ragu Positif</button>
-                                    <button id="r_negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Ragu Negatif</button>
+                                    <!-- <button id="r_positif" type="submit" class="btn btn-success" style="margin-top: 10px;">Ragu Positif</button>
+                                    <button id="r_negatif" type="submit" class="btn btn-danger" style="margin-top: 10px;">Ragu Negatif</button> -->
                                 </div>
                             </form>
                             <script>
@@ -471,14 +471,14 @@
                         <div class="card-body">
                             <h5 class="card-title">Datatables</h5>
                             <!-- Bordered Table -->
-                            <table class="table table-bordered">
+                            <table class="table datatable table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">ID</th>
                                         <th scope="col">Full_text</th>
                                         <th scope="col">Dataset</th>
-                                        <th scope="col">Lang</th>
+                                        <!-- <th scope="col">Lang</th> -->
                                         <th scope="col">Label</th>
                                     </tr>
                                 </thead>
@@ -491,13 +491,13 @@
                                             <td><?= $i['Id']; ?></td>
                                             <td><?= $i['Full_text']; ?></td>
                                             <td><?= $i['Dataset']; ?></td>
-                                            <td><?= $i['Lang']; ?></td>
+                                            <!-- <td><@= $i['Lang']; ?></td> -->
                                             <td><?= ($i['Label'] === '1' ? 'Positif' : 'Negatif'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <?= $pager->links('Dataset') ?>
+                            <!-- <@= $pager->links('Dataset') ?> -->
                             <!-- End Bordered Table -->
                         </div>
                     </div>
