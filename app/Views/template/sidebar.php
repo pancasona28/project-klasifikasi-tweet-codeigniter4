@@ -18,14 +18,14 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/form">
+                    <a href="<?= base_url('home/form'); ?>">
                         <i class="bi bi-circle"></i><span>Form Input Data</span>
                     </a>
                 </li>
             </ul>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/label">
+                    <a href="<?= base_url('home/label'); ?>">
                         <i class="bi bi-circle"></i><span>Labeling</span>
                     </a>
                 </li>
@@ -38,7 +38,7 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/tabel">
+                    <a href="<?= base_url('home/tabel'); ?>">
                         <i class="bi bi-circle"></i><span>Data Tables</span>
                     </a>
                 </li>
